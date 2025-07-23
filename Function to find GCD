@@ -1,0 +1,42 @@
+def gcd(a, b):
+    """
+    Calculate the Greatest Common Divisor (GCD) of two numbers using the Euclidean algorithm.
+    
+    Parameters:
+    a (int): First number
+    b (int): Second number
+    
+    Returns:
+    int: GCD of a and b
+    """
+    while b:
+        a, b = b, a % b
+    return abs(a)
+
+def main():
+    """
+    Main function to execute the GCD calculation.
+    """
+    print("Welcome to the GCD Calculator!")
+    
+    while True:
+        try:
+            # Get user input
+            num1 = int(input("Enter the first number (or type 'exit' to quit): "))
+            num2 = int(input("Enter the second number: "))
+            
+            # Calculate GCD
+            result = gcd(num1, num2)
+            print(f"The GCD of {num1} and {num2} is: {result}")
+        
+        except ValueError:
+            print("Invalid input. Please enter valid integers.")
+        
+        # Ask if the user wants to continue
+        cont = input("Do you want to calculate another GCD? (yes/no): ").strip().lower()
+        if cont != 'yes':
+            print("Thank you for using the GCD Calculator. Goodbye!")
+            break
+
+if _name_ == "_main_":
+    main()
